@@ -1,0 +1,44 @@
+<div class="cart">
+    <div class="cart-title">
+        <img src="../../assets/images/leftarrow.png" alt="go back" class="goback" [routerLink]="['/categories','All']">
+        <h3 class="sec-heading">SHOPPING CART</h3>
+    </div>
+    <div class="cart-container" *ngIf="total else empty">
+        <ng-container *ngFor="let product of cart">
+            <div class="cart-item">
+                <div class="item-img">
+                    <img src={{product.photo}}/>
+                </div>
+               <div class="item-desc">
+                    <h5 class="title">{{product.title}}</h5>
+                    <h5 class="paragraph">Size: {{product.selectedsize}}</h5>
+                    <div class="item-quantity">
+                        <div class="q-selector">
+                            <button (click)="decQuantity(product.id,quantity.innerHTML)" class="cart-button">-</button>
+                            <h5 #quantity class="highlight">{{product.quantity}}</h5>
+                            <button (click)="incQuantity(product.id,quantity.innerHTML)" class="cart-button">+</button>
+                        </div>
+                    </div>
+                    <h5 class="highlight">&#8377;{{product.quantity*product.cost}}</h5>
+                    <button (click)="deleteItem(product.id)" class="cart-button item-delete">Delete</button>
+                </div>
+            </div>
+        </ng-container>
+        <div class="total-container">
+            <h5 class="highlight">Subtotal: &#8377;{{total}}</h5>
+            <button class="cart-button">Checkout</button>
+        </div>
+    </div>
+    <ng-template #empty>
+        <div class="empty-cart">
+            <h5 class="paragraph">Your cart is empty!</h5>
+            <h5 class="paragraph">Continue Shopping</h5>
+            <button class="paragraph cart-button" [routerLink]="['/categories','All']">View products</button>
+        </div>
+    </ng-template>
+</div>
+
+
+
+
+<app-footer></app-footer>

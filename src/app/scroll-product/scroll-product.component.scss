@@ -1,0 +1,143 @@
+@mixin arrow{
+    width: 20px;
+    height: 5px;
+    border-radius: 2px;
+}
+
+@mixin arrow-line{
+    width: 33px;
+    height: 5px;
+    border-radius: 2px;
+    top:15px;
+}
+
+.new-arrival{
+    margin: 25px 5px 50px 5px;
+}
+
+.new-product{
+    display: flex;
+    flex-direction: row;
+    scroll-behavior: smooth;
+    overflow-x: scroll;
+    padding: 15px 0;
+    border-radius: 5px;
+    background-image: linear-gradient(to right,#f9f295,#e0aa3e,#b88a44);
+}
+
+.new-product::-webkit-scrollbar{
+    display: none;
+}
+
+.new-product{
+    -ms-overflow-style: none;
+    scrollbar-width: none;
+}
+
+.new-title{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    margin-bottom: 20px;
+    .sec-heading{
+        padding-left: 5px;
+        margin-bottom: -8px;
+    }
+}
+
+.title-buttons{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    align-items: center;
+    gap: 10px;
+}
+
+.pointer1{
+    @include arrow();
+    background-color: #ffd700;
+    top:9px;
+}
+.pointer2{
+    @include arrow();
+    background-color: #ffd700;
+    top:22px;
+}
+.line{
+    @include arrow-line();
+    background-color: #ffd700;
+}
+
+
+.left-arrow{
+    position: relative;
+    width: 42px;
+    background-color: black;
+    border-radius: 5px;
+    height: 36px;
+    padding: 0 5px 0 6px;
+    .pointer1{
+        position: absolute;
+        left: -1px;
+        transform: rotate(-45deg);
+    }
+    .pointer2{
+        position: absolute;
+        transform: rotate(45deg);
+        left: -1px;
+    }
+    .line{
+        position: absolute;
+    }
+}
+
+.right-arrow{
+    position: relative;
+    width: 42px;
+    background-color: black;
+    height: 36px;
+    border-radius: 5px;
+    padding: 0 2px;
+    .pointer1{
+        position: absolute;
+        transform: rotate(45deg);
+        left: 22px;
+    }
+    .pointer2{
+        position: absolute;
+        transform: rotate(-45deg);
+        left: 22px;
+    }
+    .line{
+        position: absolute;
+    }
+}
+
+.left-arrow:hover{
+    background-color: #ffd700;
+    cursor: pointer;
+    .pointer1{
+        background-color: black;
+    }
+    .pointer2{
+        background-color: black;
+    }
+    .line{
+        background-color: black;
+    }
+}
+
+.right-arrow:hover{
+    background-color: #ffd700;
+    cursor: pointer;
+    .pointer1{
+        background-color: black;
+    }
+    .pointer2{
+        background-color: black;
+    }
+    .line{
+        background-color: black;
+    }
+}

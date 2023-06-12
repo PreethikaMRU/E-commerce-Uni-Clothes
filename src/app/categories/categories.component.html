@@ -1,0 +1,33 @@
+<div class="category-container">
+    <h5 class="category sec-heading">{{category}}</h5>
+    <div *ngIf="category == 'All'" class="searchbar">
+        <input placeholder="Search products..." type="text" [ngModel]="input" (ngModelChange)="onSearch($event)" class="searchbar">
+    </div>
+    <div class="product-list">
+        <ng-container *ngIf="input; else other">
+            <ng-container *ngIf="searchList.length>0; else exist">
+                <ng-container *ngFor="let search of searchList">
+                    <app-product [product]="search"></app-product>
+                </ng-container>
+            </ng-container>
+            <ng-template #exist>
+                <p class="error-text">Oops! Such product doesn't exist!</p>
+            </ng-template>
+        </ng-container>
+        <ng-template #other>
+            <ng-container *ngFor="let product of productList">
+                <ng-container *ngIf="category == 'All'">
+                        <app-product [product]="product"></app-product>
+                    </ng-container>
+                <ng-container *ngIf="product.category == category">
+                    <app-product [product]="product"></app-product>
+                </ng-container>
+            </ng-container>
+        </ng-template>
+    </div>
+</div>
+
+
+
+
+<app-footer></app-footer>

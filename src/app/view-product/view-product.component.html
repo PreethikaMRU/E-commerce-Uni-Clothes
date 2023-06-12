@@ -1,0 +1,51 @@
+<div class="product-info-container">
+<div class="product-info">
+    <div class="product-title">
+        <img src="../../assets/images/leftarrow.png" class="goback" alt="go back" [routerLink]="['/categories',product.category]">
+        <h5 class="product-name sec-heading">{{product.title}}</h5>
+    </div>
+    <div class="product-body">
+        <div class="product-img">
+            <img src={{product.photo}}>
+        </div>
+        <div class="product-desc">
+            <h5 class="title">{{product.desc}}</h5>
+            <label class="product-dropdown paragraph" htmlFor="item">Size
+                <select id="item" (change)="show(choose)" #choose (blur)="onBlur()">
+                    <option value="" disabled selected>Choose</option>
+                    <ng-container *ngFor="let item of product.size">
+                        <option class="dropdown-item">{{item}}</option>
+                    </ng-container>
+                </select>
+                <ng-container>
+                    <h6 class="error-text">{{error}}</h6>
+                </ng-container>
+            </label>
+            <div class="product-cost">
+                <h5 class="paragraph">Quantity</h5>
+                <div class="product-selector">
+                    <button (click)="decQuantity()" class="p-button">-</button>
+                    <h6 class="highlight quantity">{{Q}}</h6>
+                    <button (click)="incQuantity()" class="p-button">+</button>
+                </div>
+                <h5 class="highlight">&#8377;{{product.cost}}</h5>
+            </div>
+            <div class="product-shop">
+                <button (click)="addToCart(choose)" #addtocart class="add-to-cart title p-button">Add to Cart</button>
+                <button class="title p-button">Buy now!</button>
+            </div>
+        </div>
+    </div>
+</div>
+
+<div class="alert" #alert>
+    <div class="alert-container">
+        <h5>Item added to cart!</h5>
+    </div>
+</div>
+
+<app-scroll-product></app-scroll-product>
+
+</div>
+
+<app-footer></app-footer>

@@ -1,0 +1,24 @@
+<div class="new-arrival">
+    <div class="new-title">
+      <h5 class="sec-heading">NEWLY ARRIVED</h5>
+      <div class="title-buttons">
+        <div class="left-arrow" (click)="leftScroll()">
+          <div class="pointer1"></div>
+          <div class="pointer2"></div>
+          <div class="line"></div>
+        </div>
+        <div class="right-arrow" (click)="rightScroll()">
+          <div class="pointer1"></div>
+          <div class="pointer2"></div>
+          <div class="line"></div>
+        </div>
+      </div>
+    </div>
+    <div class="new-product" #newProduct>
+      <ng-container *ngFor="let product of productList">
+        <ng-container *ngIf="product.remark == 'New'">
+          <app-new-product [product]="product"></app-new-product>
+        </ng-container>
+      </ng-container>
+    </div>
+</div>
