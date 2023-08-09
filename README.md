@@ -1,6 +1,10 @@
 # ECommerce
 
+This is a project made with Angular, Bootstrap and SCSS. This e-commerce app displays uni-gender clothes and mainly focuses on Searching, Adding Items to the cart dynamically.
+
 This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 15.2.4.
+
+View the live page of this project [here](https://e-commerce-uni-clothes.vercel.app/).
 
 ## Development server
 
